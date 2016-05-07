@@ -10,3 +10,5 @@
 	* > git _pull_ origin __develop__
 	* > git _push_ origin __develop__
 
+> NB : Merging (Penggabungan branch) dilakukan belakangan. Usahakan jika ingin merging, beritahu teman dahulu agar tidak terjadi konflik pada commit / code yang sudah di push ke repository.
+
