@@ -1,3 +1,9 @@
+// Ini adalah webserver utama yang dipake
+// Gausah pake perintah express init!
+// Pake nodejs native aja, jadi lebih gampang maintenance
+// Usahakan pake branch develop dulu
+
+
 var http = require('http'),
 	port = 1000;
 
