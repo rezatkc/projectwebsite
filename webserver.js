@@ -4,12 +4,11 @@
 // Usahakan pake branch develop dulu
 
 
-var http = require('http'),
-	port = 1000;
+var express = require('express'),
+	app = express();
 
-var server = http.createServer(function(req, res){
-	res.writeHead(200, {'content-type' : 'text/html'});
-	res.write("Pake webserver ini aja");
-}).listen(port);
+app.get('/', function(req, res){
+	res.send("Hello world");
+}).listen(1000);
 
-console.log("Server listening on port " +port);
+console.log("Server running");
