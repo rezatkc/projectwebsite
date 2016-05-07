@@ -7,6 +7,6 @@
 * Ketika sudah berhasil masuk kedalam active directory, pindah ke branch develop dengan perintah "git checkout develop"
 * Usahakan semua commit dan penambahan file dilakukan pada *Branch* tersebut.
 * Perintah untuk melakukan push terhadap perubahan file : 
-		* > git _pull_ origin __develop__
-		* > git _push_ origin __develop__
+	* > git _pull_ origin __develop__
+	* > git _push_ origin __develop__
 
