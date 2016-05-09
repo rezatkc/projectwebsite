@@ -5,7 +5,7 @@ Daftar sebagai tamu | Holimaps.id
 {% endblock %}
 
 {% block content %}
-<form action="/signup" method="POST">
+	<form action="/signup" method="POST" enctype="application/x-www-form-urlencoded">
 	<table id="signup">
 		<tr>
 			<td>Nama</td>
@@ -34,4 +34,5 @@ Daftar sebagai tamu | Holimaps.id
 		</tr>
 	</table>
 </form>
+<a href="/">Kembali</a>
 {% endblock %}
