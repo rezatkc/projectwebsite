@@ -3,7 +3,13 @@ var express  = require('express'),
 	nunjucks = require('nunjucks'),
 	path 	 = require('path'),
 	bodyParser = require('body-parser'),
-	router	 = require('./router');
+	router	 = require('./router'),
+	knex	 = require('knex')({
+		host: 'localhost',
+		user: 'root',
+		password: 'p3p3r3in4',
+		database: 'holimaps'
+	});
 
 nunjucks.configure('views', {
 	autoescape: true,
