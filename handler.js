@@ -10,12 +10,27 @@ var indexPage = function(req, res){
 }
 
 var registerPage = function(req, res){
-	res.render('register', {url: '/register/dokters'})
+	res.render('register', {url: '/register/dokter'})
+}
+
+var postRegisterPage = function(req, res){
+	var data = {
+		username: req.body.username,
+		nama: req.body.nama,
+		email: req.body.email,
+		password: req.body.password,
+		alamat: req.body.alamat
+	}	
+	knex("dokter").insert(data).then(function(data){
+		res.redirect('/');
+		console.log("Berhasil");
+	})
 }
 
 var handler = {
 	indexPage: indexPage,
-	registerPage:registerPage
+	registerPage:registerPage,
+	postRegisterPage: postRegisterPage
 }
 
 module.exports = handler;
