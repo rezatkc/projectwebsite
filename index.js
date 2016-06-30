@@ -11,6 +11,8 @@ nunjucks.configure('views', {
 	express: app
 });
 
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'html');
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({
@@ -18,7 +20,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static(__dirname + '/public'));
 app.use(router);
 app.listen(app.get('port'), function(){
 	console.log("Server running on " + app.get('port'));

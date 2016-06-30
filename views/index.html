@@ -1,16 +1,66 @@
 {% extends "base.html" %}
 
-{% block title %}
-	Holimaps.id
-{% endblock %}
-
 {% block content %}
-	<h1>Selamat datang di Holimaps</h1>
-	<quote>Holimaps adalah aplikasi destinasi wisata berbasis maps</quote>
-	<p>
-		<ul>
-			<li><a href="/signup">Mulai daftar</a></li>
-			<li><a href="/signin">Masuk</a></li>
-		</ul>
-	</p>
+<div class="cover">
+      {% include "navbar.html" %}
+      <div class="cover-image" style="background-image : url('http://i1301.photobucket.com/albums/ag108/rezabulan/home_zpsiasw8zny.jpg')"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <h1 class="text-danger">Cari Dokter</h1>
+            <p>Layanan Pasien Untuk Mencari Dokter di Sekitar Kamu</p>
+            <br>
+            <br>
+            <a class="btn btn-lg btn-warning">Cari Dok<i class="fa fa-star fa-fw"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1 class="text-center text-warning">
+              <b>Cara yang benar menemukan dokter anda</b>
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-left">
+            <h3 class="text-left">Sekarang Anda dapat menemukan dokter Anda yang tepat berdasarkan pengetahuan,
+              bukan kebetulan.</h3>
+            <br>- Cari dan temukan dokter berdasarkan spesialisasi dan lokasi terdekat
+            di sekitar Anda.
+            <br>- Pelajari latar belakang pendidikan dokter, jadwal praktek dan tandai
+            di daftar dokter Anda sebagai yang Anda sukai.
+            <br>- Buat temu janji (Booking) secara
+            <b>ONLINE</b>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+          <div class="col-md-6 text-center">
+            <img src="images\bhome.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section section-info">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1>
+              <b>Quote</b>
+            </h1>
+          </div>
+          <div class="col-md-12 text-left">
+            <h3 class="text-center text-muted">Ada banyak orang di dunia ini yang menghabiskan begitu banyak waktu mengawasi
+              kesehatan mereka, namun tidak memiliki waktu untuk menikmatinya. (Josh
+              Billings).</h3>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}

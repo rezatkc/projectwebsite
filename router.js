@@ -3,17 +3,16 @@ var express = require('express'),
 	router	= express.Router();
 	
 router.get('/', function(req, res){
-	res.render('index.html');
+	res.render('index');
 });
-router.get('/signup', function(req, res){
-	res.render('signup.html');
-	console.log(req.body.nama);
-});
-router.post('/signup', function(req, res){
-	res.render("result.html", {nama: req.body.nama});
-});
-router.get('/signin', function(req, res){
-	
+router.get('/register/:type', function(req, res){
+	var type = req.params.type;
+	if(type === "dokter") {
+		res.render("register", {url: "/register/dokter"});
+	}
+	else{
+		res.render("register", {url: "/register/pasien"});
+	}
 });
 
 module.exports = router;
