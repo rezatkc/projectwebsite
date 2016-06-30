@@ -4,13 +4,8 @@ var express  = require('express'),
 	path 	 = require('path'),
 	bodyParser = require('body-parser'),
 	router	 = require('./router'),
-	knex	 = require('knex')({
-		host: 'localhost',
-		user: 'root',
-		password: 'p3p3r3in4',
-		database: 'holimaps'
-	});
-
+	cookieParser = require('cookie-parser');
+	
 nunjucks.configure('views', {
 	autoescape: true,
 	express: app
@@ -22,6 +17,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 app.use(router);
 app.listen(app.get('port'), function(){
