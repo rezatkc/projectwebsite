@@ -1,18 +1,22 @@
 var express = require('express'),
 	bodyParser = require('body-parser'),
+	handler = require('./handler'),
+	multer = require('multer'),
 	router	= express.Router();
 	
-router.get('/', function(req, res){
-	res.render('index');
-});
-router.get('/register/:type', function(req, res){
-	var type = req.params.type;
-	if(type === "dokter") {
-		res.render("register", {url: "/register/dokter"});
-	}
-	else{
-		res.render("register", {url: "/register/pasien"});
+var storage = multer.diskStorage({
+	destination: function(req, file, callback){
+		callback(null, './uploads');
+	},
+	filename: function(req, file, callback){
+		callback(null, file.originalName)
 	}
 });
 
+router.get('/', handler.indexPage);
+router.get('/register/:type', handler.registerPage);
+
+// r.post('/upload', multer({
+// 	storage: storage
+// }))
 module.exports = router;
