@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% include "navbar.html" %}
 <div class="cover">
-      {% include "navbar.html" %}
+      <div style="margin: 20px 0;"></div>
       <div class="cover-image" style="background-image : url('http://i1301.photobucket.com/albums/ag108/rezabulan/home_zpsiasw8zny.jpg')"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-6 text-center">
+          <div class="col-md-6 col-md-offset-3 text-center">
             <h1 class="text-danger">Cari Dokter</h1>
             <p>Layanan Pasien Untuk Mencari Dokter di Sekitar Kamu</p>
             <br>
@@ -33,10 +34,6 @@
             di sekitar Anda.
             <br>- Pelajari latar belakang pendidikan dokter, jadwal praktek dan tandai
             di daftar dokter Anda sebagai yang Anda sukai.
-            <br>- Buat temu janji (Booking) secara
-            <b>ONLINE</b>
-            <br>
-            <br>
             <br>
             <br>
             <br>
