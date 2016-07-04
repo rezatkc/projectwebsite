@@ -27,10 +27,25 @@ var postRegisterPage = function(req, res){
 	})
 }
 
+var loginPage = function(req, res){
+	res.render('login');
+}
+
+var daftarPage = function(req, res){
+	res.render('daftarpasien');
+}
+
+var searchPage = function(req, res){
+	res.render("cari");
+}
+
 var handler = {
 	indexPage: indexPage,
-	registerPage:registerPage,
-	postRegisterPage: postRegisterPage
+	registerPage: registerPage,
+	postRegisterPage: postRegisterPage,
+	daftarPage: daftarPage,
+	loginPage: loginPage,
+	searchPage: searchPage
 }
 
 module.exports = handler;

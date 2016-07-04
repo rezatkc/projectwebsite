@@ -7,6 +7,11 @@ module.exports = {
       user: 'root',
       password: '',
       database: 'latihan'
-    }
+    },
+    pool: {
+    	min: 0,
+    	max: 7
+    },
+    aqcuireConnectionTimeout: 10000
   }
 }

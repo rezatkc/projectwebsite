@@ -16,7 +16,10 @@ var storage = multer.diskStorage({
 router.get('/', handler.indexPage);
 router.get('/register/:type', handler.registerPage);
 router.post('/register/:type', handler.postRegisterPage);
+router.get('/daftar', handler.daftarPage);
 
+router.get('/login', handler.loginPage);
+router.get('/cari', handler.searchPage);
 // r.post('/upload', multer({
 // 	storage: storage
 // }))
