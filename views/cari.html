@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12" style="padding-left: 0; padding-right: 0">
+			<div id="map">
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<input type="text" name="cari" class="form-control no-rounded no-shadow input-lg no-outline" placeholder="Cari Dokter" />
+					<input type="submit" name="submit" class="btn btn-primary center-block pull-top-10 pull-down-10 no-rounded" value="Cari Dokter" />
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12" style="background: #333; padding: 10px 50px">
+			<div class="row">
+				{% for d in data %}
+				<div class="col-md-12 pull-top-half pull-down-half post show-dokter">
+					<div class="row">
+						<div class="col-sm-2">
+							foto
+						</div>
+						<div class="col-sm-10">
+							{{ d.alamat }}
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  var map;
+  function initMap() {
+  	var myLang = {lat: 3.595196, lng: 98.672223};
+
+  	// 3.613548, 98.502529
+   //  3.519078, 98.814226
+
+   var banyak = {
+   	0: {
+   		lat: 3.595196, 
+   		lng: 98.672223
+   	},
+   	1: {
+   		lat: 3.613548, 
+   		lng: 98.502529
+   	},
+   	2: {
+   		lat: 3.519078, 
+   		lng: 98.814226
+   	}
+   }
+
+  	var createMarker = function(a,b){
+  		return new google.maps.Marker({
+  			position: {lat: a, lng: b},
+  			map: map,
+  			title: 'Hello World'
+  		});
+  	};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: myLang,
+      zoom: 8
+    });
+
+    // createMarker(3.519078, 98.814226)
+    var totalObject = Object.keys('/api').length;
+
+
+    $(document).ready(function(){
+    	$.get('/api', function(data){
+    		for(var i = 0; i < data.length; i++){
+    			createMarker(parseFloat(data[i].lat), parseFloat(data[i].lng));
+    		}
+    	})
+    })
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrXDfv8nebb_ygpFPZnN8iDBfYPpKGNog&callback=initMap" async defer></script>
+<script src="/js/jquery.min.js"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS5Xp6T5vm6b3RJ00hfrVaTdYRrIEqHMo&libraries=places&callback=initMap" async defer>-->
+{% endblock %}
