@@ -1,66 +1,162 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-<div class="cover">
-      {% include "navbar.html" %}
-      <div class="cover-image" style="background-image : url('http://i1301.photobucket.com/albums/ag108/rezabulan/home_zpsiasw8zny.jpg')"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 text-center">
-            <h1 class="text-danger">Cari Dokter</h1>
-            <p>Layanan Pasien Untuk Mencari Dokter di Sekitar Kamu</p>
-            <br>
-            <br>
-            <a class="btn btn-lg btn-warning">Cari Dok<i class="fa fa-star fa-fw"></i></a>
-          </div>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CariDok - Cara Mudah Menemukan Dokter</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+        #imaginary_container{
+            margin-top:20%; /* Don't copy this */
+        }
+        .stylish-input-group .input-group-addon{
+            background: white !important; 
+        }
+        .stylish-input-group .form-control{
+            border-right:0; 
+            box-shadow:0 0 0; 
+            border-color:#ccc;
+        }
+        .stylish-input-group button{
+            border:0;
+            background:transparent;
+        }    
+    </style>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    
+                    <i class="fa fa-stethoscope"></i> <span class="light">CariDok</span>
+                     <div class="col-sm-6 col-sm-offset-3">
+            
+            
+            
         </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h1 class="text-center text-warning">
-              <b>Cara yang benar menemukan dokter anda</b>
-            </h1>
-          </div>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Register</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Login</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div class="row">
-          <div class="col-md-6 text-left">
-            <h3 class="text-left">Sekarang Anda dapat menemukan dokter Anda yang tepat berdasarkan pengetahuan,
-              bukan kebetulan.</h3>
-            <br>- Cari dan temukan dokter berdasarkan spesialisasi dan lokasi terdekat
-            di sekitar Anda.
-            <br>- Pelajari latar belakang pendidikan dokter, jadwal praktek dan tandai
-            di daftar dokter Anda sebagai yang Anda sukai.
-            <br>- Buat temu janji (Booking) secara
-            <b>ONLINE</b>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-          <div class="col-md-6 text-center">
-            <img src="images\bhome.jpg">
-          </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Cari Dok</h1>
+                        <p class="intro-text">Cari,Temukan,Lihat jadwal dan Atur schedulenya.
+                            <br>Created by MW-A Sore STMIK Mikroskil semester 6.</p>
+             
+                        <!--Search-->
+                        <div> 
+                            <div class="input-group stylish-input-group">
+                                <input type="text" class="form-control"  placeholder="Masukkan Nama Dokter,Tempat,Spesialisasi" >
+                                <span class="input-group-addon">
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>  
+                                </span>
+                            </div>
+                        </div>
+                        <!--End-->                       
+                                    
+                        
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="section section-info">
-      <div class="container">
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
         <div class="row">
-          <div class="col-md-12 text-center">
-            <h1>
-              <b>Quote</b>
-            </h1>
-          </div>
-          <div class="col-md-12 text-left">
-            <h3 class="text-center text-muted">Ada banyak orang di dunia ini yang menghabiskan begitu banyak waktu mengawasi
-              kesehatan mereka, namun tidak memiliki waktu untuk menikmatinya. (Josh
-              Billings).</h3>
-          </div>
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Tentang CariDok</h2>
+                <p>
+                    CariDok merupakan situs untuk menemukan dokter di sekitar area Anda dan melakukan booking secara instan tanpa Anda perlu menghubungi ke tempat praktek. Selain itu, kami juga memberikan fasilitas kemudahan dalam mencari dokter yang sesuai bagi Anda. Kriteria pencarian yang kami sediakan dapat dilakukan berdasarkan spesialisasi, lokasi, nama dokter dan tempat praktek
+                </p>
+                
+            </div>
         </div>
-      </div>
-    </div>
-{% endblock %}
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; CariDok 2016</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+
+</body>
+
+</html>
