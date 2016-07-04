@@ -9,6 +9,12 @@ var indexPage = function(req, res){
 	res.render("index");
 }
 
+var api = function(req, res){
+	knex.select('lat', 'lng').from("dokter").then(function(data){
+		res.send(data);
+	})
+}
+
 var registerPage = function(req, res){
 	res.render('register', {url: '/register/dokter'})
 }
@@ -19,7 +25,9 @@ var postRegisterPage = function(req, res){
 		nama: req.body.nama,
 		email: req.body.email,
 		password: req.body.password,
-		alamat: req.body.alamat
+		alamat: req.body.alamat,
+		lat: req.body.placeLat,
+		lng: req.body.placeLng
 	}	
 	knex("dokter").insert(data).then(function(data){
 		res.redirect('/');
@@ -36,7 +44,13 @@ var daftarPage = function(req, res){
 }
 
 var searchPage = function(req, res){
-	res.render("cari");
+	knex.select().from("dokter").then(function(data){
+		res.render('cari', {data: data});
+	})
+}
+
+var apiGet = function(req, res){
+	res.render('get');
 }
 
 var handler = {
@@ -45,7 +59,9 @@ var handler = {
 	postRegisterPage: postRegisterPage,
 	daftarPage: daftarPage,
 	loginPage: loginPage,
-	searchPage: searchPage
+	searchPage: searchPage,
+	api: api,
+	apiGet: apiGet
 }
 
 module.exports = handler;

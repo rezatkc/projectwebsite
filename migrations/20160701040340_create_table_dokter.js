@@ -8,7 +8,9 @@ exports.up = function(knex, Promise) {
 			table.string('password');
 			table.string('nama');
 			table.string('email');
-      table.text('alamat');
+			table.string('lat');
+			table.string('lng');
+      		table.text('alamat');
 			table.text('foto');
 		})	
 	]);

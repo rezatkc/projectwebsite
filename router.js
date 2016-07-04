@@ -20,6 +20,10 @@ router.get('/daftar', handler.daftarPage);
 
 router.get('/login', handler.loginPage);
 router.get('/cari', handler.searchPage);
+
+router.get('/api', handler.api);
+
+router.get('/testing', handler.apiGet);
 // r.post('/upload', multer({
 // 	storage: storage
 // }))
