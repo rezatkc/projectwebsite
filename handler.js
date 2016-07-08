@@ -3,10 +3,12 @@ var knex = require('./db');
 //var salt = bcrypt.genSaltSync(10);
 
 var indexPage = function(req, res){
-	// knex.select().from("data").then(function(data){
-	// 	res.render();
-	// })
-	res.render("index");
+	if(req.session.username){
+		res.render('index', {login: true, username: req.session.username});
+	}
+	else{
+		res.render('index', {login: false});
+	}
 }
 
 var api = function(req, res){
@@ -16,7 +18,7 @@ var api = function(req, res){
 }
 
 var registerPage = function(req, res){
-	res.render('register', {url: '/register/dokter'})
+	res.render('register')
 }
 
 var postRegisterPage = function(req, res){
@@ -27,8 +29,9 @@ var postRegisterPage = function(req, res){
 		password: req.body.password,
 		alamat: req.body.alamat,
 		lat: req.body.placeLat,
-		lng: req.body.placeLng
-	}	
+		lng: req.body.placeLng,
+		layanan: req.body.layanan
+	}
 	knex("dokter").insert(data).then(function(data){
 		res.redirect('/');
 		console.log("Berhasil");
@@ -39,29 +42,53 @@ var loginPage = function(req, res){
 	res.render('login');
 }
 
-var daftarPage = function(req, res){
-	res.render('daftarpasien');
+var loginPost = function(req, res){
+	var data = {
+		username: req.body.username,
+		password: req.body.password,
+	}
+
+	req.session.username = data.username;
+	req.session.password = data.password;
+
+	res.redirect('/');
 }
 
+var logout = function(req, res){
+	req.session.destroy();
+	res.redirect('/');
+}
 var searchPage = function(req, res){
-	knex.select().from("dokter").then(function(data){
-		res.render('cari', {data: data});
-	})
+	if(req.session.username){
+		knex.select().from("dokter").then(function(data){
+			res.render('cari', {data: data, username: req.session.username});
+		})
+	}
 }
 
 var apiGet = function(req, res){
 	res.render('get');
 }
 
+var show = function(req, res){
+	var id = req.params.id;
+
+	knex.select().from("dokter").where('id', id).then(function(data){
+		res.render('modal', {data: data});
+	})
+}
+
 var handler = {
 	indexPage: indexPage,
 	registerPage: registerPage,
 	postRegisterPage: postRegisterPage,
-	daftarPage: daftarPage,
 	loginPage: loginPage,
+	loginPost: loginPost,
 	searchPage: searchPage,
 	api: api,
-	apiGet: apiGet
+	apiGet: apiGet,
+	logout: logout,
+	show: show
 }
 
 module.exports = handler;

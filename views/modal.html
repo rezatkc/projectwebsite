@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "navbar_login.html" %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12" style="padding-left: 0; padding-right: 0">
+			<div style="border: 1px solid; height: 400px"></div>
+		</div>
+
+		<div class="col-md-12" style="background: #333; padding: 10px 50px">
+			<div class="row">
+				{% for d in data %}
+				<div class="col-md-8 col-md-offset-2 pull-top-half pull-down-half post show-dokter">
+					<div class="row">
+						<div class="col-sm-2">
+							{{ d.nama }}
+						</div>
+						<div class="col-sm-8">
+							{{ d.alamat }}
+						</div>
+						<div class="col-md-2">
+							<a href="/show/{{ d.id }}" class="btn btn-primary">Detail</a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+</div>
+{% endblock %}
