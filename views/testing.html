@@ -1,21 +1,23 @@
-<form action="/testing" method="POST">
-    <table>
-        <tr>
-            <td>Nama</td>
-            <td>
-                : <input type="text" name="nama">
-            </td>
-        </tr>
-        <tr>
-            <td>Jurusan</td>
-            <td>
-                : <input type="text" name="jurusan">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" name="submit" value="Register">
-            </td>
-        </tr>
-    </table>
-</form>
+<div id="hacker">
+    <input type="text" class="search">
+
+    <ul class="list">
+        <li>
+            <p class="nama">Andre</p>
+            <p class="kota">Medan</p>
+        </li>
+        <li>
+            <p class="nama">Messi</p>
+            <p class="kota">Argentina</p>
+        </li>
+    </ul>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
+<script>
+    var options = {
+        valueNames: ['nama', 'kota']
+    };
+
+    var hacker = new List('hacker', options);
+</script>

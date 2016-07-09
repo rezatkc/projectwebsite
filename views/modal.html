@@ -15,14 +15,37 @@
 				{% for d in data %}
 				<div class="col-md-8 col-md-offset-2 pull-top-half pull-down-half post show-dokter">
 					<div class="row">
-						<div class="col-sm-2">
-							{{ d.nama }}
+						<div class="col-sm-10 pull-down-half">
+							<div class="col-sm-4">
+								Nama Dokter
+							</div>
+							<div class="col-sm-8">
+								{{ d.nama }}
+							</div>
 						</div>
-						<div class="col-sm-8">
-							{{ d.alamat }}
+						<div class="col-sm-10 pull-down-half">
+							<div class="col-sm-4">
+								Alamat Praktek
+							</div>
+							<div class="col-sm-8">
+								{{ d.alamat }}
+							</div>
 						</div>
-						<div class="col-md-2">
-							<a href="/show/{{ d.id }}" class="btn btn-primary">Detail</a>
+						<div class="col-sm-10 pull-down-half">
+							<div class="col-sm-4">
+								Email
+							</div>
+							<div class="col-sm-8">
+								{{ d.email }}
+							</div>
+						</div>
+						<div class="col-sm-10 pull-down-half">
+							<div class="col-sm-4">
+								Layanan
+							</div>
+							<div class="col-sm-8">
+								{{ d.layanan }}
+							</div>
 						</div>
 					</div>
 				</div>

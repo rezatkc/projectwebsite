@@ -30,12 +30,14 @@ var postRegisterPage = function(req, res){
 		alamat: req.body.alamat,
 		lat: req.body.placeLat,
 		lng: req.body.placeLng,
-		layanan: req.body.layanan
+		layanan: req.body.layanan,
+		foto: req.file.originalname
 	}
-	knex("dokter").insert(data).then(function(data){
-		res.redirect('/');
-		console.log("Berhasil");
-	})
+	console.log(data);
+	// knex("dokter").insert(data).then(function(data){
+	// 	res.redirect('/');
+	// 	console.log("Berhasil");
+	// })
 }
 
 var loginPage = function(req, res){
@@ -78,7 +80,16 @@ var show = function(req, res){
 	})
 }
 
+var admin = function(req, res){
+	res.render('admin/profile');
+}
+
+var testing = function(req, res){
+	res.render('testing');
+}
+
 var handler = {
+	testing: testing,
 	indexPage: indexPage,
 	registerPage: registerPage,
 	postRegisterPage: postRegisterPage,
@@ -88,7 +99,8 @@ var handler = {
 	api: api,
 	apiGet: apiGet,
 	logout: logout,
-	show: show
+	show: show,
+	admin: admin
 }
 
 module.exports = handler;
