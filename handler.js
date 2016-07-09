@@ -4,7 +4,7 @@ var knex = require('./db');
 
 var indexPage = function(req, res){
 	if(req.session.username){
-		res.render('index', {login: true, username: req.session.username});
+		res.render('index', {login: true, nama: req.session.username});
 	}
 	else{
 		res.render('index', {login: false});
@@ -49,10 +49,20 @@ var loginPost = function(req, res){
 		password: req.body.password,
 	}
 
-	req.session.username = data.username;
-	req.session.password = data.password;
+	knex.select().from("dokter").where('email', data.username).then(function(x){
+		var jumlah = Object.keys(x).length || 0;
+		if(jumlah){
+			req.session.username = data.username;
+			req.session.nama = x.username;
+			res.redirect('/');
+		}
+		else{
+			res.sendStatus(401);
+		}
+	})
+	// req.session.username = data.username;
+	// req.session.password = data.password;
 
-	res.redirect('/');
 }
 
 var logout = function(req, res){
@@ -62,7 +72,7 @@ var logout = function(req, res){
 var searchPage = function(req, res){
 	if(req.session.username){
 		knex.select().from("dokter").then(function(data){
-			res.render('cari', {data: data, username: req.session.username});
+			res.render('cari', {data: data, nama: req.session.username});
 		})
 	}
 }
@@ -75,7 +85,7 @@ var show = function(req, res){
 	if(req.session.username){
 		var id = req.params.id;
 		knex.select().from("dokter").where('id', id).then(function(data){
-			res.render('modal', {data: data, username: req.session.username});
+			res.render('modal', {data: data, nama: req.session.username});
 		})
 	}
 }
