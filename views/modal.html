@@ -6,14 +6,18 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12" style="padding-left: 0; padding-right: 0">
-			<div style="border: 1px solid; height: 400px"></div>
+		<div class="col-md-12 pull-top-10 pull-down-10">
+			<div style="height: 400px">
+				{% for a in data %}
+				<img src="/images/uploads/{{a.foto}}" alt="" class="img img-responsive center-block" style="border: 1px solid #dadada;">
+				{% endfor %}
+			</div>
 		</div>
 
-		<div class="col-md-12" style="background: #333; padding: 10px 50px">
+		<div class="col-md-12 pull-top-10" style="background: #333; padding: 10px 50px">
 			<div class="row">
 				{% for d in data %}
-				<div class="col-md-8 col-md-offset-2 pull-top-half pull-down-half post show-dokter">
+				<div class="col-md-8 col-md-offset-2 pull-top-half pull-down-half dokter show-dokter">
 					<div class="row">
 						<div class="col-sm-10 pull-down-half">
 							<div class="col-sm-4">
@@ -46,6 +50,10 @@
 							<div class="col-sm-8">
 								{{ d.layanan }}
 							</div>
+						</div>
+
+						<div class="col-sm 10 pull-down-half text-center">
+							<a href="/cari" class="btn btn-primary btn-lg pull-top-10 no-rounded"><i class="fa fa-search"></i> Cari Dokter lain</a>
 						</div>
 					</div>
 				</div>

@@ -33,11 +33,10 @@ var postRegisterPage = function(req, res){
 		layanan: req.body.layanan,
 		foto: req.file.originalname
 	}
-	console.log(data);
-	// knex("dokter").insert(data).then(function(data){
-	// 	res.redirect('/');
-	// 	console.log("Berhasil");
-	// })
+	knex("dokter").insert(data).then(function(data){
+		res.redirect('/');
+		console.log("Berhasil");
+	})
 }
 
 var loginPage = function(req, res){
@@ -73,11 +72,12 @@ var apiGet = function(req, res){
 }
 
 var show = function(req, res){
-	var id = req.params.id;
-
-	knex.select().from("dokter").where('id', id).then(function(data){
-		res.render('modal', {data: data});
-	})
+	if(req.session.username){
+		var id = req.params.id;
+		knex.select().from("dokter").where('id', id).then(function(data){
+			res.render('modal', {data: data, username: req.session.username});
+		})
+	}
 }
 
 var admin = function(req, res){

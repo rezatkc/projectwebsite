@@ -6,7 +6,7 @@ var express = require('express'),
 
 var storage =   multer.diskStorage({
 	destination: function (req, file, callback) {
-				callback(null, './uploads');
+				callback(null, './public/images/uploads');
 	},
 	filename: function (req, file, callback) {
 				// callback(null, file.fieldname + '-' + Date.now());
@@ -24,9 +24,9 @@ router.get('/login', handler.loginPage);
 router.post('/login', handler.loginPost);
 router.get('/logout', handler.logout);
 
-router.get('/show/:id', handler.show);
+router.get('/show/:id', auth, handler.show);
 
-router.get('/cari', auth,  handler.searchPage);
+router.get('/cari', auth, handler.searchPage);
 router.get('/api', handler.api);
 
 router.get('/admin', handler.admin);
