@@ -53,6 +53,10 @@ var apiGet = function(req, res){
 	res.render('get');
 }
 
+var admin = function(req, res){
+	res.render('admin/tables_dynamic');
+}
+
 var handler = {
 	indexPage: indexPage,
 	registerPage: registerPage,
@@ -61,7 +65,8 @@ var handler = {
 	loginPage: loginPage,
 	searchPage: searchPage,
 	api: api,
-	apiGet: apiGet
+	apiGet: apiGet,
+	admin: admin
 }
 
 module.exports = handler;

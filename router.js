@@ -24,6 +24,8 @@ router.get('/cari', handler.searchPage);
 router.get('/api', handler.api);
 
 router.get('/testing', handler.apiGet);
+
+router.get('/admin', handler.admin);
 // r.post('/upload', multer({
 // 	storage: storage
 // }))
