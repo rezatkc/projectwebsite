@@ -1,18 +1,17 @@
-# projectwebsite
+# CariDokter
 
-## Pengumuman
+Aplikasi ini berguna sebagai media informasi dokter - dokter indonesia berbasis lokasi dengan memanfaatkan Google Maps API.
 
-* Usahakan clone pada folder c:/xampp/htdocs (untuk windows) atau /opt/lampp/htdocs or /var/www (untuk linux)
-* Ketika sudah berhasil masuk kedalam active directory, pindah ke branch develop dengan perintah "git checkout develop"
-* Usahakan semua commit dan penambahan file dilakukan pada *Branch* tersebut.
-* Perintah untuk melakukan push terhadap perubahan file : 
-	* > git _pull_ origin __develop__ (_usahakan pull terlebih dahulu agar terhindar dari konflik_)
-	* > git _push_ origin __develop__
-	* Jika sudah melakukan push ke branch develop dan tidak terjadi perubahan apa - apa terhadap repository utama (yang ada di github), jangan takut jangan risau :)) Kalian cukup melakukan perintah : 
-		* > git checkout master
-		* > git merge develop
-		* > git push origin *master*
-		* _ingat! Pastikan teman anda tahu bahwa anda telah melakukan merging dari branch develop ke branch master
+## Cara menggunakan
 
-> NB : Merging (Penggabungan branch) dilakukan belakangan. Usahakan jika ingin merging, beritahu teman dahulu agar tidak terjadi konflik pada commit / code yang sudah di push ke repository.
+* Buat database dengan nama 'latihan', atau jika ingin menggunakan aplikasi dengan database lain, cukup ganti database pada file knexfile.js
+* Lakukan migrasi dengan perintah knex migrate:latest pada terminal / prompt
+* lakukan penginstalan package dengan perintah npm install
 
+## Anggota Kelompok
+
+* Andre Pratama - 131114315
+* M. Reza Surya Kamajaya - 13111
+* Teuku Martunis Syah - 13111
+* Alvantesha Priliandi - 13111
+* Chairil Azmi - 13111
