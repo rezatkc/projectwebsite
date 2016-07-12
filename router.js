@@ -1,6 +1,7 @@
 var express = require('express'),
 	router	= express.Router(),
 	auth = require('./auth'),
+	auth_admin = require('./auth_admin'),
 	multer = require('multer'),
 	handler = require('./handler');
 
@@ -24,12 +25,18 @@ router.get('/login', handler.loginPage);
 router.post('/login', handler.loginPost);
 router.get('/logout', handler.logout);
 
-router.get('/show/:id', auth, handler.show);
+router.get('/admin/login', handler.adminLogin);
+router.post('/admin/login', handler.adminLoginPost);
+router.get('/admin/logout', handler.adminLogout);
+router.get('/admin', handler.admin);
+router.get('/admin/del/:id', handler.adminDeleteData);
 
+
+router.get('/show/:id', auth, handler.show);
 router.get('/cari', auth, handler.searchPage);
 router.get('/api', handler.api);
 
-router.get('/admin', handler.admin);
+router.get('/admin', auth_admin, handler.admin);
 
 router.get('/testing', handler.testing);
 module.exports = router;

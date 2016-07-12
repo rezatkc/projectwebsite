@@ -91,11 +91,45 @@ var show = function(req, res){
 }
 
 var admin = function(req, res){
-	res.render('admin/profile');
+	if(req.session.admin){
+		knex.select().from("dokter").then(function(data){
+			res.render('admin/tables_dynamic', {data: data});
+		})
+	}
+	else {
+		res.redirect('/admin/login');
+	}
+	
+}
+
+var adminDeleteData = function(req, res){
+	var id = req.params.id;
+	knex('dokter').where('id', id).del().then(function(data){
+		res.redirect('/admin');
+	})
 }
 
 var testing = function(req, res){
 	res.render('testing');
+}
+
+var adminLogin = function(req, res){
+	res.render('login_admin');
+}
+
+var adminLoginPost = function(req, res){
+	var data = {
+		username: req.body.username,
+		password: req.body.password
+	}
+	req.session.admin = data.username;
+	req.session.password = data.password;
+	res.redirect('/admin');
+}
+
+var adminLogout = function(req, res){
+	req.session.destroy();
+	res.redirect('/admin/login');
 }
 
 var handler = {
@@ -110,7 +144,11 @@ var handler = {
 	apiGet: apiGet,
 	logout: logout,
 	show: show,
-	admin: admin
+	admin: admin,
+	adminLogin: adminLogin,
+	adminLoginPost: adminLoginPost,
+	adminLogout: adminLogout,
+	adminDeleteData: adminDeleteData
 }
 
 module.exports = handler;
