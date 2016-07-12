@@ -5,7 +5,7 @@ module.exports = {
     connection: {
       host: 'localhost',
       user: 'root',
-      password: '',
+      password: 'p3p3r3in4',
       database: 'latihan'
     },
     pool: {
