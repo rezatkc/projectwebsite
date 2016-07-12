@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% include "navbar.html" %}
+{% include "navbar_login.html" %}
 
 <div class="container-fluid">
 	<div class="row">
@@ -11,36 +11,50 @@
 			</div>
 		</div>
 
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<input type="text" name="cari" class="form-control no-rounded no-shadow input-lg no-outline" placeholder="Cari Dokter" />
-					<input type="submit" name="submit" class="btn btn-primary center-block pull-top-10 pull-down-10 no-rounded" value="Cari Dokter" />
+		<div id="bungkus">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<input type="text" name="cari" class="form-control no-rounded no-shadow input-lg no-outline search" placeholder="Cari Dokter" />
+						<input type="submit" name="submit" class="btn btn-primary center-block pull-top-10 pull-down-10 no-rounded" value="Cari Dokter" />
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 list" style="background: #333; padding: 10px 50px">
+				<div class="row">
+					{% for d in data %}
+					<div class="col-md-12 pull-top-half pull-down-half post show-dokter">
+						<div class="row">
+							<div class="col-sm-2 nama">
+								{{ d.nama }}
+							</div>
+							<div class="col-sm-8 alamat">
+								{{ d.alamat }}
+							</div>
+							<div class="col-md-2">
+								<a href="/show/{{ d.id }}" class="btn btn-primary">Detail</a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
 
-		<div class="col-md-12" style="background: #333; padding: 10px 50px">
-			<div class="row">
-				{% for d in data %}
-				<div class="col-md-12 pull-top-half pull-down-half post show-dokter">
-					<div class="row">
-						<div class="col-sm-2">
-							foto
-						</div>
-						<div class="col-sm-10">
-							{{ d.alamat }}
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
 	</div>
 </div>
 {% endblock %}
 
 {% block script %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.2.0/list.min.js"></script>
+<script>
+	var options = {
+		valueNames: ['nama', 'alamat']
+	};
+
+	var bungkus = new List('bungkus', options);
+</script>
 <script>
   var map;
   function initMap() {

@@ -10,7 +10,8 @@ exports.up = function(knex, Promise) {
 			table.string('email');
 			table.string('lat');
 			table.string('lng');
-      		table.text('alamat');
+			table.text('layanan');
+      table.text('alamat');
 			table.text('foto');
 		})	
 	]);

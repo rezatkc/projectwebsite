@@ -4,12 +4,19 @@ var express  = require('express'),
 	path 	 = require('path'),
 	bodyParser = require('body-parser'),
 	router	 = require('./router'),
+	expressSession = require('express-session'),
 	cookieParser = require('cookie-parser');
 	
 nunjucks.configure('views', {
 	autoescape: true,
 	express: app
 });
+
+app.use(expressSession({
+    secret: "andreepratama",
+    resave: true,
+    saveUninitialized: true
+}));
 
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
