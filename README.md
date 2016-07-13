@@ -4,6 +4,8 @@ Aplikasi ini berguna sebagai media informasi dokter - dokter indonesia berbasis 
 
 ## PENTING
 ### BUAT FOLDER DENGAN NAMA 'uploads' pada folder public/images/
+### Link aplikasi web : http://188.166.216.194:3000
+
 ## Cara menggunakan
 
 * Buat database dengan nama 'latihan', atau jika ingin menggunakan aplikasi dengan database lain, cukup ganti database pada file knexfile.js
