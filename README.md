@@ -13,7 +13,7 @@ Aplikasi ini berguna sebagai media informasi dokter - dokter indonesia berbasis 
 ## Anggota Kelompok
 
 * Andre Pratama - 131114315
-* M. Reza Surya Kamajaya - 13111
-* Teuku Martunis Syah - 13111
-* Alvantesha Priliandi - 13111
-* Chairil Azmi - 13111
+* M. Reza Surya Kamajaya - 131110941
+* Teuku Martunis Syah - 131112110
+* Alvantesha Priliandi - 131113026
+* Chairil Azmi - 131111491
